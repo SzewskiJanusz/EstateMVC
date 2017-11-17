@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EstateAgencyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Listing">
+          <Key>
+            <PropertyRef Name="ListingID" />
+          </Key>
+          <Property Name="ListingID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HLCN" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="HousePrice" Type="money" Nullable="false" />
+          <Property Name="RoomAmount" Type="int" Nullable="false" />
+          <Property Name="BathroomAmount" Type="int" Nullable="false" />
+          <Property Name="BedroomAmount" Type="int" Nullable="false" />
+          <Property Name="HomeLocation" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ContactName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="EmailContact" Type="varchar" MaxLength="50" />
+          <Property Name="PhoneContact" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="HomeSurfaceArea" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ParcelSurfaceArea" Type="nchar" MaxLength="10" />
+          <Property Name="YearBuilt" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ParcelSize" Type="varchar" MaxLength="50" />
+          <Property Name="GarageSlots" Type="int" Nullable="false" />
+          <Property Name="Notes" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="TypeOfProperty" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ListingPicture">
+          <Key>
+            <PropertyRef Name="ImageID" />
+          </Key>
+          <Property Name="ImageID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImagePath" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ImageAlt" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ListingID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Listing_ListingPicture">
+          <End Role="Listing" Type="Self.Listing" Multiplicity="1" />
+          <End Role="ListingPicture" Type="Self.ListingPicture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Listing">
+              <PropertyRef Name="ListingID" />
+            </Principal>
+            <Dependent Role="ListingPicture">
+              <PropertyRef Name="ListingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EstateAgencyModelStoreContainer">
+          <EntitySet Name="Listing" EntityType="Self.Listing" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ListingPicture" EntityType="Self.ListingPicture" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Listing_ListingPicture" Association="Self.FK_Listing_ListingPicture">
+            <End Role="Listing" EntitySet="Listing" />
+            <End Role="ListingPicture" EntitySet="ListingPicture" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EstateAgencyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Listing">
+          <Key>
+            <PropertyRef Name="ListingID" />
+          </Key>
+          <Property Name="ListingID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HLCN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HousePrice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="RoomAmount" Type="Int32" Nullable="false" />
+          <Property Name="BathroomAmount" Type="Int32" Nullable="false" />
+          <Property Name="BedroomAmount" Type="Int32" Nullable="false" />
+          <Property Name="HomeLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ContactName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EmailContact" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneContact" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HomeSurfaceArea" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ParcelSurfaceArea" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="YearBuilt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ParcelSize" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GarageSlots" Type="Int32" Nullable="false" />
+          <Property Name="Notes" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TypeOfProperty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ListingPicture" Relationship="Self.FK_Listing_ListingPicture" FromRole="Listing" ToRole="ListingPicture" />
+        </EntityType>
+        <EntityType Name="ListingPicture">
+          <Key>
+            <PropertyRef Name="ImageID" />
+          </Key>
+          <Property Name="ImageID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImagePath" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ImageAlt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ListingID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Listing" Relationship="Self.FK_Listing_ListingPicture" FromRole="ListingPicture" ToRole="Listing" />
+        </EntityType>
+        <Association Name="FK_Listing_ListingPicture">
+          <End Role="Listing" Type="Self.Listing" Multiplicity="1" />
+          <End Role="ListingPicture" Type="Self.ListingPicture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Listing">
+              <PropertyRef Name="ListingID" />
+            </Principal>
+            <Dependent Role="ListingPicture">
+              <PropertyRef Name="ListingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EstateAgencyEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Listing" EntityType="Self.Listing" />
+          <EntitySet Name="ListingPicture" EntityType="Self.ListingPicture" />
+          <AssociationSet Name="FK_Listing_ListingPicture" Association="Self.FK_Listing_ListingPicture">
+            <End Role="Listing" EntitySet="Listing" />
+            <End Role="ListingPicture" EntitySet="ListingPicture" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EstateAgencyModelStoreContainer" CdmEntityContainer="EstateAgencyEntities">
+          <EntitySetMapping Name="Listing">
+            <EntityTypeMapping TypeName="EstateAgencyModel.Listing">
+              <MappingFragment StoreEntitySet="Listing">
+                <ScalarProperty Name="ListingID" ColumnName="ListingID" />
+                <ScalarProperty Name="HLCN" ColumnName="HLCN" />
+                <ScalarProperty Name="HousePrice" ColumnName="HousePrice" />
+                <ScalarProperty Name="RoomAmount" ColumnName="RoomAmount" />
+                <ScalarProperty Name="BathroomAmount" ColumnName="BathroomAmount" />
+                <ScalarProperty Name="BedroomAmount" ColumnName="BedroomAmount" />
+                <ScalarProperty Name="HomeLocation" ColumnName="HomeLocation" />
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="EmailContact" ColumnName="EmailContact" />
+                <ScalarProperty Name="PhoneContact" ColumnName="PhoneContact" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="HomeSurfaceArea" ColumnName="HomeSurfaceArea" />
+                <ScalarProperty Name="ParcelSurfaceArea" ColumnName="ParcelSurfaceArea" />
+                <ScalarProperty Name="YearBuilt" ColumnName="YearBuilt" />
+                <ScalarProperty Name="ParcelSize" ColumnName="ParcelSize" />
+                <ScalarProperty Name="GarageSlots" ColumnName="GarageSlots" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="TypeOfProperty" ColumnName="TypeOfProperty" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ListingPicture">
+            <EntityTypeMapping TypeName="EstateAgencyModel.ListingPicture">
+              <MappingFragment StoreEntitySet="ListingPicture">
+                <ScalarProperty Name="ImageID" ColumnName="ImageID" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="ImageAlt" ColumnName="ImageAlt" />
+                <ScalarProperty Name="ListingID" ColumnName="ListingID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
