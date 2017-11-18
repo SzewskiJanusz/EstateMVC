@@ -1,0 +1,19 @@
+﻿@model EstateMVC.Models.Users
+@{
+    ViewBag.Title = "Agencja nieruchomości DOTNET";
+}
+
+<h2>Witaj @Session["UserName"]</h2>
+
+<div id="container">
+    <br />
+
+    <div style="float:left;">
+        @Html.ActionLink("Wyszukaj nieruchomość","SearchEstate")
+    </div>
+
+    <div style="clear:both;">
+        @Html.ActionLink("Wpisz identyfikator nieruchomości", "SearchById")
+    </div>
+
+</div>

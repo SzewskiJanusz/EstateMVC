@@ -6,9 +6,9 @@ using System.Web.Mvc;
 
 namespace EstateMVC.Controllers
 {
-    public class HomeController : Controller
+    public class ResultController : Controller
     {
-
+        // GET: Result
         public ActionResult Index()
         {
             return View();

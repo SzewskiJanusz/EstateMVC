@@ -20,6 +20,13 @@ namespace EstateMVC.Controllers
             return View();
         }
 
+        // GET: Logout
+        public ActionResult Logout()
+        {
+            Session.Abandon();
+            return View();
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Index(Models.Users objUser)
@@ -28,10 +35,10 @@ namespace EstateMVC.Controllers
 
             if (ModelState.IsValid)
             {
-                if (ValidateUser(hashedPassword.ToString(), objUser.UserName))
+                if (ValidateUser(objUser.UserName, hashedPassword.ToString()))
                 {
                     Session["UserName"] = objUser.UserName;
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Search");
                 }
                 else
                 {

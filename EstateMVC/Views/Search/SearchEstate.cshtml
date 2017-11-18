@@ -1,0 +1,79 @@
+﻿@model EstateMVC.Models.EstateSearching
+@{
+    ViewBag.Title = "SearchEstate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .prelabel{
+        min-width: 150px;
+    }
+
+</style>
+
+<h2>Wyszukaj nieruchomość</h2>
+
+
+<br /><br />
+@using (Html.BeginForm("Index", "Result", FormMethod.Post))
+{
+    <div>
+        @Html.ValidationMessageFor(ES => ES.MaxPrice)
+        <label for="MinPrice" class="prelabel">Cena minimalna:</label>
+        <select id="minprice">
+            <option value="none">Nie ustalona</option>
+            <option value="100000">100000</option>
+            <option value="150000">150000</option>
+            <option value="200000">200000</option>
+            <option value="250000">250000</option>
+            <option value="500000">500000</option>
+        </select>
+    </div>
+    <br />
+    <div>
+        <label for="MaxPrice" class="prelabel">Cena maksymalna:</label>
+        <select id="maxprice">
+            <option value="100000">100000</option>
+            <option value="150000">150000</option>
+            <option value="200000">200000</option>
+            <option value="250000">250000</option>
+            <option value="300000">300000</option>
+            <option value="500000">500000</option>
+            <option value="none">Nie ustalona</option>
+        </select>
+    </div>
+    <br />
+    <div>
+        <label for="RoomAmount" class="prelabel">Ilość pokoi:</label>
+        <select id="rooms">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="4+">4+</option>
+        </select>
+    </div>
+     <br />
+    <div>
+        <label for="BedroomAmount" class="prelabel">Ilość sypialni:</label>
+        <select id="bedamount">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="4+">4+</option>
+        </select>
+    </div>
+    <br />
+    <div>
+        <label for="BathroomAmount" class="prelabel">Ilość łazienek:</label>
+        <select id="bathamount">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="2+">2+</option>
+        </select>
+    </div>
+
+    <br /><br />
+    <input type="submit" value="Szukaj" />
+}
