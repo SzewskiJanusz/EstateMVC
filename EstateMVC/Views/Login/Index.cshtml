@@ -1,4 +1,5 @@
-﻿@model EstateMVC.Models.Users
+﻿
+@model EstateMVC.Models.Users
 @{
     ViewBag.Title = "Home Page";
 }
@@ -19,12 +20,12 @@
         }
         <table>
             <tr>
-                <td>@Html.LabelFor(User => User.UserName,"Nazwa użytkownika")</td>
+                <td>@Html.LabelFor(User => User.UserName, "Nazwa użytkownika")</td>
                 <td>@Html.TextBoxFor(User => User.UserName)</td>
                 <td>@Html.ValidationMessageFor(User => User.UserName)</td>
             </tr>
             <tr>
-                <td>@Html.LabelFor(User => User.Password,"Hasło")</td>
+                <td>@Html.LabelFor(User => User.Password, "Hasło")</td>
                 <td>@Html.PasswordFor(User => User.Password)</td>
                 <td>@Html.ValidationMessageFor(User => User.Password)</td>
             </tr>
