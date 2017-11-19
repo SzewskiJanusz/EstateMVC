@@ -26,7 +26,7 @@ namespace EstateMVC.Controllers
             {
                 Response.Redirect("/Login/Index");
             }
-
+            
             return View();
         }
 
@@ -36,6 +36,13 @@ namespace EstateMVC.Controllers
             if (es.MinPrice > es.MaxPrice)
             {
                 ModelState.AddModelError("", "Cena minimalna nie może być większa niż cena maksymalna!");
+            }
+            else
+            {
+                return RedirectToAction("GetProperties", "Result", 
+                    new {minPrice = es.MinPrice, maxPrice = es.MaxPrice,
+                    roomAmount = es.RoomAmount, bedroomAmount = es.BedroomAmount,
+                    bathroomAmount = es.BathroomAmount});
             }
 
             return View(es);

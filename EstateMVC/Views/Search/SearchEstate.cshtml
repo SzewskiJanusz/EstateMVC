@@ -15,63 +15,74 @@
 
 
 <br /><br />
-@using (Html.BeginForm("Index", "Result", FormMethod.Post))
+@using (Html.BeginForm("SearchEstate", "Search", FormMethod.Post))
 {
     <div>
-        @Html.ValidationMessageFor(ES => ES.MaxPrice)
+        @Html.ValidationSummary(true)
+        @Html.ValidationMessageFor(m => m.MaxPrice)
         <label for="MinPrice" class="prelabel">Cena minimalna:</label>
-        <select id="minprice">
-            <option value="none">Nie ustalona</option>
-            <option value="100000">100000</option>
-            <option value="150000">150000</option>
-            <option value="200000">200000</option>
-            <option value="250000">250000</option>
-            <option value="500000">500000</option>
-        </select>
+
+        @Html.DropDownListFor(m => m.MinPrice, new List<SelectListItem>
+                   { new SelectListItem{Text="Nie ustalona", Value="0"},
+                     new SelectListItem{Text="100000", Value="100000"},
+                     new SelectListItem{Text="150000", Value="150000"},
+                     new SelectListItem{Text="200000", Value="200000"},
+                     new SelectListItem{Text="250000", Value="250000"},
+                     new SelectListItem{Text="500000", Value="500000"}
+                    })
     </div>
     <br />
     <div>
         <label for="MaxPrice" class="prelabel">Cena maksymalna:</label>
-        <select id="maxprice">
-            <option value="100000">100000</option>
-            <option value="150000">150000</option>
-            <option value="200000">200000</option>
-            <option value="250000">250000</option>
-            <option value="300000">300000</option>
-            <option value="500000">500000</option>
-            <option value="none">Nie ustalona</option>
-        </select>
+        @Html.DropDownListFor(m => m.MaxPrice, new List<SelectListItem>
+                   { 
+                     new SelectListItem{Text="100000", Value="100000"},
+                     new SelectListItem{Text="150000", Value="150000"},
+                     new SelectListItem{Text="200000", Value="200000"},
+                     new SelectListItem{Text="250000", Value="250000"},
+                     new SelectListItem{Text="500000", Value="500000"},
+                     new SelectListItem{Text="1000000", Value="1000000"},
+                     new SelectListItem{Text="Nie ustalona", Value="99999999"}
+                    })
     </div>
     <br />
     <div>
         <label for="RoomAmount" class="prelabel">Ilość pokoi:</label>
-        <select id="rooms">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="4+">4+</option>
-        </select>
+        @Html.DropDownListFor(m => m.RoomAmount, new List<SelectListItem>
+                   {
+                     new SelectListItem{Text="Dowolna", Value="none"},
+                     new SelectListItem{Text="1", Value="1"},
+                     new SelectListItem{Text="2", Value="2"},
+                     new SelectListItem{Text="3", Value="3"},
+                     new SelectListItem{Text="4", Value="4"},
+                     new SelectListItem{Text="4+", Value="4+"},
+                    })
     </div>
      <br />
     <div>
         <label for="BedroomAmount" class="prelabel">Ilość sypialni:</label>
-        <select id="bedamount">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="4+">4+</option>
-        </select>
+        @Html.DropDownListFor(m => m.BedroomAmount, new List<SelectListItem>
+                   {
+                     new SelectListItem{Text="Dowolna", Value="none"},
+                     new SelectListItem{Text="1", Value="1"},
+                     new SelectListItem{Text="2", Value="2"},
+                     new SelectListItem{Text="3", Value="3"},
+                     new SelectListItem{Text="4", Value="4"},
+                     new SelectListItem{Text="4+", Value="4+"},
+                    })
     </div>
     <br />
     <div>
         <label for="BathroomAmount" class="prelabel">Ilość łazienek:</label>
-        <select id="bathamount">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="2+">2+</option>
-        </select>
+        @Html.DropDownListFor(m => m.BathroomAmount, new List<SelectListItem>
+                   {
+                     new SelectListItem{Text="Dowolna", Value="none"},
+                     new SelectListItem{Text="1", Value="1"},
+                     new SelectListItem{Text="2", Value="2"},
+                     new SelectListItem{Text="3", Value="3"},
+                     new SelectListItem{Text="4", Value="4"},
+                     new SelectListItem{Text="4+", Value="4+"},
+                    })
     </div>
 
     <br /><br />

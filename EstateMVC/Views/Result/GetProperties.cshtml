@@ -1,0 +1,63 @@
+﻿@model IEnumerable<EstateMVC.Models.BriefResult>
+
+@{
+    ViewBag.Title = "Wyszukane nieruchomości";
+}
+
+<h2>Wyszukane nieruchomości</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.HLCN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HousePrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RoomAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BathroomAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BedroomAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HomeLocation)
+        </th>   
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>  
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.HLCN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HousePrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RoomAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BathroomAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BedroomAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HomeLocation)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>   
+    </tr>
+}
+
+</table>
