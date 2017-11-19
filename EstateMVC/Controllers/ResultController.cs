@@ -19,7 +19,7 @@ namespace EstateMVC.Controllers
         // GET: Result with searching arguments
         public ActionResult GetProperties(int minPrice, int maxPrice,
             int roomAmount,int bedroomAmount,int bathroomAmount)
-        {
+        {    
             List<EstateMVC.Models.Listing> listing =
                 db.Listing.Where(x =>
                 x.HousePrice >= minPrice && x.HousePrice <= maxPrice).ToList();
@@ -47,6 +47,7 @@ namespace EstateMVC.Controllers
                 string imagePath = 
                 db.ListingPicture.Where(x =>
                 x.ListingID == id).Select(x => x.ImagePath).First();
+                ViewBag.ImagePath = imagePath;
                 brieflist.Add(new Models.BriefResult(
                     imagePath, 
                     objList.HLCN, 

@@ -8,7 +8,7 @@ namespace EstateMVC.Models
 {
     public partial class BriefResult
     {
-        [Display(Name = "Obrazek")]
+        [Display(Name = "Podgląd")]
         public string ImagePath { get; set; }
 
         [Display(Name = "Identyfikator")]

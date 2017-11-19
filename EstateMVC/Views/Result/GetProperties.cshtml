@@ -4,13 +4,15 @@
     ViewBag.Title = "Wyszukane nieruchomości";
 }
 
+
+
 <h2>Wyszukane nieruchomości</h2>
 
 
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.HLCN)
+            @Html.DisplayNameFor(model => model.ImagePath)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.HousePrice)
@@ -35,8 +37,8 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.HLCN)
+        <td>   
+            <img src="@Url.Content(item.ImagePath)" height=100 width=161 />
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.HousePrice)

@@ -150,6 +150,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\InformationController.cs" />
     <Compile Include="Controllers\ResultController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -204,12 +205,15 @@
     <Content Include="App_Data\LoginDB_log.ldf">
       <DependentUpon>LoginDB.mdf</DependentUpon>
     </Content>
+    <Content Include="Assets\house.png" />
+    <Content Include="Assets\letnik.jpg" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Assets\mainpageimage.jpg" />
     <Content Include="Models\EstateModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>EstateModel.Context.cs</LastGenOutput>
@@ -278,7 +282,9 @@
     <Content Include="Views\Result\Index.cshtml" />
     <Content Include="Views\Result\GetProperties.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Information\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
   </ItemGroup>
