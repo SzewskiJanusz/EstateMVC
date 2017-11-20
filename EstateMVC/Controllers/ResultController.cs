@@ -16,6 +16,32 @@ namespace EstateMVC.Controllers
             return View();
         }
 
+        // GET: Result with searching with ID
+        public ActionResult GetByID(string hlcn)
+        {
+            string imagePath = db.ListingPicture.Where(x =>
+                x.Listing.HLCN == hlcn).Select(x => x.ImagePath).First();
+
+
+
+            BriefResult br = new BriefResult(
+                imagePath,
+                hlcn,
+                db.Listing.Where(x => x.HLCN == hlcn).Select(x => x.HousePrice).First(),
+                db.Listing.Where(x => x.HLCN == hlcn).Select(x => x.HomeLocation).First(),
+                db.Listing.Where(x => x.HLCN == hlcn).Select(x => x.Address).First(),
+                db.Listing.Where(x => x.HLCN == hlcn).Select(x => x.RoomAmount).First(),
+                db.Listing.Where(x => x.HLCN == hlcn).Select(x => x.BathroomAmount).First(),
+                db.Listing.Where(x => x.HLCN == hlcn).Select(x => x.BedroomAmount).First()
+            );
+            // Create list in purpose of using the same view of GetProperties action
+            // which uses IEnumerable model
+            List<BriefResult> blist = new List<BriefResult>();
+            blist.Add(br);
+            return View("~/Views/Result/GetProperties.cshtml",blist);
+        }
+
+
         // GET: Result with searching arguments
         public ActionResult GetProperties(int minPrice, int maxPrice,
             int roomAmount,int bedroomAmount,int bathroomAmount)

@@ -284,6 +284,7 @@
     <Content Include="Views\Result\GetProperties.cshtml" />
     <Content Include="Views\Information\ShowProfile.cshtml" />
     <Content Include="Views\Information\Index.cshtml" />
+    <Content Include="Views\Search\SearchByID.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

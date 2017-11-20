@@ -12,56 +12,47 @@
     </div>
     <div style='float:left;margin-left:20px'>
         <div style='float:left;'>
-            <asp:Label runat="server" ID="idhlcn" Text="Numer identyfikacyjny: "></asp:Label>
-            <asp:Label runat="server" ID="idhlcnL"></asp:Label>
+            Numer identyfikacyjny: @Model.listing.HLCN
         </div>
         <br /><br />
         <div style='clear:both;'>
-            <asp:Label runat="server" ID="price" Text="Cena:" CssClass="infoLabel" Width="100"></asp:Label>
-            <asp:Label ID="priceL" runat="server" Text=""></asp:Label>
+            Cena: @Convert.ToInt32(Model.listing.HousePrice) zł
         </div>
         <br />
 
         <div>
-            <asp:Label runat="server" ID="location" CssClass="infoLabel" Width="100">Dzielnica: </asp:Label>
-            <asp:Label ID="locationL" runat="server" Text="" CssClass="label"></asp:Label>
+            Dzielnica: @Model.listing.HomeLocation
         </div>
         <br />
 
         <div>
-            <asp:Label runat="server" ID="address" CssClass="infoLabel" Width="100">Adres: </asp:Label>
-            <asp:Label ID="addressL" runat="server" Text="" CssClass="label"></asp:Label>
+            Adres: @Model.listing.Address
         </div>
         <br />
 
         <div>
-            <asp:Label runat="server" ID="typ" CssClass="infoLabel" Width="100">Typ obiektu: </asp:Label>
-            <asp:Label runat="server" ID="typL"></asp:Label>
+            Typ obiektu: @Model.listing.TypeOfProperty
         </div>
     </div>
 
-    <div style="float:left">
+    <div style="float:left;margin-left:30px">
         <br /><br />
         <div style='clear:both;'>
-            <asp:Label runat="server" ID="bedrooms" Text="Ilość sypialni:" CssClass="infoLabel" Width="120"></asp:Label>
-            <asp:Label ID="bedroomsL" runat="server" Text=""></asp:Label>
+            Ilość sypialni: @Model.listing.BedroomAmount
         </div>
         <br />
 
         <div>
-            <asp:Label runat="server" ID="bathrooms" CssClass="infoLabel" Text="Ilość łazienek" Width="120"></asp:Label>
-            <asp:Label ID="bathroomsL" runat="server" Text="" CssClass="label"></asp:Label>
+            Ilość łazienek: @Model.listing.BathroomAmount
         </div>
         <br />
 
         <div>
-            <asp:Label runat="server" ID="rooms" CssClass="infoLabel" Width="120">Ilość pokoi: </asp:Label>
-            <asp:Label runat="server" ID="roomsL"></asp:Label>
+            Ilość pokoi: @Model.listing.RoomAmount
         </div>
         <br />
         <div>
-            <asp:Label runat="server" ID="garageSlots" CssClass="infoLabel" Width="120">Miejsc w garażu: </asp:Label>
-            <asp:Label runat="server" ID="garageSlotsL"></asp:Label>
+            Miejsc w garażu: @Model.listing.GarageSlots
         </div>
 
     </div>
@@ -69,25 +60,21 @@
     <div style="float:left;margin-left:50px">
         <br /> <br />
         <div style='clear:both;'>
-            <asp:Label runat="server" ID="year" CssClass="infoLabel" Width="150">Rok budowy: </asp:Label>
-            <asp:Label runat="server" ID="yearL"></asp:Label>
+            Rok budowy: @Model.listing.YearBuilt
         </div>
         <div>
             <br />
-            <asp:Label runat="server" ID="homeSurf" CssClass="infoLabel" Width="150">Powierzchnia domu: </asp:Label>
-            <asp:Label ID="homeSurfL" runat="server" Text="" CssClass="label"></asp:Label>
+            Powierzchnia domu: @Model.listing.HomeSurfaceArea
         </div>
 
         <div>
             <br />
-            <asp:Label runat="server" ID="parcelSurf" CssClass="infoLabel" Width="150">Powierzchnia działki: </asp:Label>
-            <asp:Label ID="parcelSurfL" runat="server" Text="" CssClass="label"></asp:Label>
+            Powierzchnia działki: @Model.listing.ParcelSurfaceArea
         </div>
 
         <div>
             <br />
-            <asp:Label runat="server" ID="parcelSize" CssClass="infoLabel" Width="150">Wymiary działki: </asp:Label>
-            <asp:Label ID="parcelSizeL" runat="server" Text="" CssClass="label"></asp:Label>
+            Wymiary działki: @Model.listing.ParcelSize
         </div>
     </div>
 
@@ -99,18 +86,21 @@
     <br />
 
     <div style="float:left">
-        <asp:Label runat="server" ID="name" CssClass="infoLabel" Width="150">Wystawione przez: </asp:Label>
-        <asp:Label ID="nameL" runat="server" Text="" CssClass="label"></asp:Label>
+        Wystawione przez: @Model.listing.ContactName
     </div>
 
     <div style="float:left;margin-left:50px">
-        <asp:Label runat="server" ID="phone" CssClass="infoLabel" Width="150">Numer telefonu: </asp:Label>
-        <asp:Label ID="phoneL" runat="server" Text="" CssClass="label"></asp:Label>
+        Numer telefonu: @Model.listing.PhoneContact
     </div>
 
     <div style="float:left;margin-left:50px">
-        <asp:Label runat="server" ID="email" CssClass="infoLabel" Width="50">Email: </asp:Label>
-        <asp:Label ID="emailL" runat="server" Text="" CssClass="label"></asp:Label>
+        E-mail: @Model.listing.EmailContact
+    </div>
+    <br /><br />
+    Opis nieruchomości
+    <br /><br />
+    <div style="clear:both;margin-left:50px">
+        @Model.listing.Notes
     </div>
 
 </div>
