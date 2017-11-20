@@ -3,13 +3,32 @@
 @{
     ViewBag.Title = "Wyszukane nieruchomości";
 }
+ 
+<style type="text/css">
+    .hoverTable {
+        width: 100%;
+        border-collapse: collapse;
+    }
 
+    .hoverTable td {
+        padding: 7px;
+        border: #4e95f4 1px solid;
+    }
+    /* Define the default color for all the table rows */
+    .hoverTable tr {
+        background: #fff;
+    }
+    /* Define the hover highlight color for the table row */
+    .hoverTable tr:hover {
+        background-color: #ffff99;
+    }
+</style>
 
 
 <h2>Wyszukane nieruchomości</h2>
 
 
-<table class="table">
+<table id="tableId" class="hoverTable">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.ImagePath)
@@ -28,38 +47,39 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.HomeLocation)
-        </th>   
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.Address)
-        </th>  
+        </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>   
-            <img src="@Url.Content(item.ImagePath)" height=100 width=161 />
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HousePrice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RoomAmount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BathroomAmount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BedroomAmount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HomeLocation)
-        </td>
-        
-        <td>
-            @Html.DisplayFor(modelItem => item.Address)
-        </td>   
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr onclick="location.href = '@(Url.Action("ShowProfile", "Information", new { hlcn = item.HLCN }))'">
+            <td>
+                <img src="@Url.Content(item.ImagePath)" height=100 width=161 />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HousePrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BathroomAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BedroomAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HomeLocation)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+        </tr>
+    }
 
 </table>

@@ -1,0 +1,117 @@
+﻿@model EstateMVC.Models.DetailedListing
+@{
+    ViewBag.Title = "Dane nieruchomości";
+}
+
+<h2>Dane nieruchomości</h2>
+
+
+<div id="content">
+    <div style='float:left;'>
+        <img src="@Url.Content(Model.imagePath)" height=100 width=161 />
+    </div>
+    <div style='float:left;margin-left:20px'>
+        <div style='float:left;'>
+            <asp:Label runat="server" ID="idhlcn" Text="Numer identyfikacyjny: "></asp:Label>
+            <asp:Label runat="server" ID="idhlcnL"></asp:Label>
+        </div>
+        <br /><br />
+        <div style='clear:both;'>
+            <asp:Label runat="server" ID="price" Text="Cena:" CssClass="infoLabel" Width="100"></asp:Label>
+            <asp:Label ID="priceL" runat="server" Text=""></asp:Label>
+        </div>
+        <br />
+
+        <div>
+            <asp:Label runat="server" ID="location" CssClass="infoLabel" Width="100">Dzielnica: </asp:Label>
+            <asp:Label ID="locationL" runat="server" Text="" CssClass="label"></asp:Label>
+        </div>
+        <br />
+
+        <div>
+            <asp:Label runat="server" ID="address" CssClass="infoLabel" Width="100">Adres: </asp:Label>
+            <asp:Label ID="addressL" runat="server" Text="" CssClass="label"></asp:Label>
+        </div>
+        <br />
+
+        <div>
+            <asp:Label runat="server" ID="typ" CssClass="infoLabel" Width="100">Typ obiektu: </asp:Label>
+            <asp:Label runat="server" ID="typL"></asp:Label>
+        </div>
+    </div>
+
+    <div style="float:left">
+        <br /><br />
+        <div style='clear:both;'>
+            <asp:Label runat="server" ID="bedrooms" Text="Ilość sypialni:" CssClass="infoLabel" Width="120"></asp:Label>
+            <asp:Label ID="bedroomsL" runat="server" Text=""></asp:Label>
+        </div>
+        <br />
+
+        <div>
+            <asp:Label runat="server" ID="bathrooms" CssClass="infoLabel" Text="Ilość łazienek" Width="120"></asp:Label>
+            <asp:Label ID="bathroomsL" runat="server" Text="" CssClass="label"></asp:Label>
+        </div>
+        <br />
+
+        <div>
+            <asp:Label runat="server" ID="rooms" CssClass="infoLabel" Width="120">Ilość pokoi: </asp:Label>
+            <asp:Label runat="server" ID="roomsL"></asp:Label>
+        </div>
+        <br />
+        <div>
+            <asp:Label runat="server" ID="garageSlots" CssClass="infoLabel" Width="120">Miejsc w garażu: </asp:Label>
+            <asp:Label runat="server" ID="garageSlotsL"></asp:Label>
+        </div>
+
+    </div>
+
+    <div style="float:left;margin-left:50px">
+        <br /> <br />
+        <div style='clear:both;'>
+            <asp:Label runat="server" ID="year" CssClass="infoLabel" Width="150">Rok budowy: </asp:Label>
+            <asp:Label runat="server" ID="yearL"></asp:Label>
+        </div>
+        <div>
+            <br />
+            <asp:Label runat="server" ID="homeSurf" CssClass="infoLabel" Width="150">Powierzchnia domu: </asp:Label>
+            <asp:Label ID="homeSurfL" runat="server" Text="" CssClass="label"></asp:Label>
+        </div>
+
+        <div>
+            <br />
+            <asp:Label runat="server" ID="parcelSurf" CssClass="infoLabel" Width="150">Powierzchnia działki: </asp:Label>
+            <asp:Label ID="parcelSurfL" runat="server" Text="" CssClass="label"></asp:Label>
+        </div>
+
+        <div>
+            <br />
+            <asp:Label runat="server" ID="parcelSize" CssClass="infoLabel" Width="150">Wymiary działki: </asp:Label>
+            <asp:Label ID="parcelSizeL" runat="server" Text="" CssClass="label"></asp:Label>
+        </div>
+    </div>
+
+    <div style="clear:both;">
+        <br /><br />
+        <asp:Label runat="server" ID="notes"></asp:Label>
+    </div>
+    <br />
+    <br />
+
+    <div style="float:left">
+        <asp:Label runat="server" ID="name" CssClass="infoLabel" Width="150">Wystawione przez: </asp:Label>
+        <asp:Label ID="nameL" runat="server" Text="" CssClass="label"></asp:Label>
+    </div>
+
+    <div style="float:left;margin-left:50px">
+        <asp:Label runat="server" ID="phone" CssClass="infoLabel" Width="150">Numer telefonu: </asp:Label>
+        <asp:Label ID="phoneL" runat="server" Text="" CssClass="label"></asp:Label>
+    </div>
+
+    <div style="float:left;margin-left:50px">
+        <asp:Label runat="server" ID="email" CssClass="infoLabel" Width="50">Email: </asp:Label>
+        <asp:Label ID="emailL" runat="server" Text="" CssClass="label"></asp:Label>
+    </div>
+
+</div>
+

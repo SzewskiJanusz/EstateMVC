@@ -158,6 +158,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BriefResult.cs" />
+    <Compile Include="Models\DetailedListing.cs" />
     <Compile Include="Models\EstateModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -281,10 +282,10 @@
     <Content Include="Views\Login\Logout.cshtml" />
     <Content Include="Views\Result\Index.cshtml" />
     <Content Include="Views\Result\GetProperties.cshtml" />
+    <Content Include="Views\Information\ShowProfile.cshtml" />
+    <Content Include="Views\Information\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Information\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
   </ItemGroup>
