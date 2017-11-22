@@ -60,17 +60,17 @@ namespace EstateMVC.Controllers
 
             if (roomAmount > 0)
             {
-                listing = FilterRooms(roomAmount);
+                listing = FilterRooms(roomAmount,listing);
             }
 
             if (bathroomAmount > 0)
             {
-                listing = FilterBathrooms(bathroomAmount);
+                listing = FilterBathrooms(bathroomAmount,listing);
             }
 
             if (bedroomAmount > 0)
             {
-                listing = FilterBedrooms(bedroomAmount);
+                listing = FilterBedrooms(bedroomAmount,listing);
             }
 
 
@@ -96,19 +96,34 @@ namespace EstateMVC.Controllers
             return View(brieflist);
         }
 
-        private List<Listing> FilterBedrooms(int bedroomAmount)
+        // room == 5 because in DDL in SearchEstate view there is value 5 on 4+ rooms option 
+        private List<Listing> FilterBedrooms(int bedroomAmount, List<EstateMVC.Models.Listing> list)
         {
-            return db.Listing.Where(x => x.BedroomAmount == bedroomAmount).ToList();
+            if (bedroomAmount == 5)
+            {
+                return list.Where(x => x.BedroomAmount >= bedroomAmount).ToList();
+            }
+
+            return list.Where(x => x.BedroomAmount == bedroomAmount).ToList();
         }
 
-        private List<Listing> FilterBathrooms(int bathroomAmount)
+        private List<Listing> FilterBathrooms(int bathroomAmount, List<EstateMVC.Models.Listing> list)
         {
-            return db.Listing.Where(x => x.BathroomAmount == bathroomAmount).ToList();
-        }
+            if (bathroomAmount == 5)
+            {
+                return list.Where(x => x.BathroomAmount >= bathroomAmount).ToList();
+            }
 
-        private List<Models.Listing> FilterRooms(int rooms)
+            return list.Where(x => x.BathroomAmount == bathroomAmount).ToList();
+        }
+        private List<Models.Listing> FilterRooms(int rooms, List<EstateMVC.Models.Listing> list)
         {
-            return db.Listing.Where(x => x.RoomAmount == rooms).ToList();
+            if (rooms == 5)
+            {
+                return list.Where(x => x.RoomAmount >= rooms).ToList();
+            }
+
+            return list.Where(x => x.RoomAmount == rooms).ToList();
         }
     }
 }
