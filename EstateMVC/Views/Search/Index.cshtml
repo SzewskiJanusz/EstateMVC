@@ -1,19 +1,64 @@
 ﻿@model EstateMVC.Models.Users
+<link rel="stylesheet" href="~/Content/fontello.css" type="text/css" />
 @{
     ViewBag.Title = "Agencja nieruchomości DOTNET";
 }
 
 <h2>Witaj @Session["UserName"]</h2>
 
+<style type="text/css">
+    .glass {
+        float: left;
+        margin-left: 50px;
+        color: black;
+        text-align: center;
+        text-decoration: none;
+    }
+
+        .glass:hover {
+            background-color: #ebd3c1;
+        }
+
+    .keyboard {
+        float: left;
+        margin-left: 100px;
+        text-align: center;
+        color: black;
+        text-decoration: none;
+    }
+
+        .keyboard:hover {
+            background-color: #ebd3c1;
+        }
+
+
+    .textUnderFontello {
+        font-size: 18px;
+        font: 600;
+        font-family: Verdana;
+    }
+</style>
+
 <div id="container">
     <br />
 
     <div style="float:left;">
-        @Html.ActionLink("Wyszukaj nieruchomość","SearchEstate")
+        <a href="/Search/SearchEstate" class="glass">
+            <div>
+                <i class="icon-search"></i><br />
+                <div class="textUnderFontello">Wyszukaj nieruchomość</div>
+            </div>
+        </a>
     </div>
 
-    <div style="clear:both;">
-        @Html.ActionLink("Wpisz identyfikator nieruchomości", "SearchById")
+    <div>
+        <a href="/Search/SearchById" class="keyboard">
+            <div>
+                <i class="icon-keyboard"></i><br />
+                <div class="textUnderFontello">Wpisz identyfikator nieruchomości</div>
+            </div>
+        </a> 
     </div>
+    <div style="clear:both;"></div>
 
 </div>

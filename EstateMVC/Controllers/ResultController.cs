@@ -19,12 +19,13 @@ namespace EstateMVC.Controllers
         // GET: Result with searching with ID
         public ActionResult GetByID(string hlcn)
         {
-            string imagePath = db.ListingPicture.Where(x =>
-                x.Listing.HLCN == hlcn).Select(x => x.ImagePath).First();
+            string imagePath;
+            try
+            {
+                imagePath = db.ListingPicture.Where(x =>
+                    x.Listing.HLCN == hlcn).Select(x => x.ImagePath).First();
 
-
-
-            BriefResult br = new BriefResult(
+                BriefResult br = new BriefResult(
                 imagePath,
                 hlcn,
                 db.Listing.Where(x => x.HLCN == hlcn).Select(x => x.HousePrice).First(),
@@ -34,11 +35,18 @@ namespace EstateMVC.Controllers
                 db.Listing.Where(x => x.HLCN == hlcn).Select(x => x.BathroomAmount).First(),
                 db.Listing.Where(x => x.HLCN == hlcn).Select(x => x.BedroomAmount).First()
             );
-            // Create list in purpose of using the same view of GetProperties action
-            // which uses IEnumerable model
-            List<BriefResult> blist = new List<BriefResult>();
-            blist.Add(br);
-            return View("~/Views/Result/GetProperties.cshtml",blist);
+                // Create list in purpose of using the same view of GetProperties action
+                // which uses IEnumerable model
+                List<BriefResult> blist = new List<BriefResult>();
+                blist.Add(br);
+                return View("~/Views/Result/GetProperties.cshtml", blist);
+            }
+            catch (InvalidOperationException)
+            {
+                imagePath = "";
+                List<BriefResult> blist = new List<BriefResult>();
+                return View("~/Views/Result/GetProperties.cshtml", blist);
+            }
         }
 
 
