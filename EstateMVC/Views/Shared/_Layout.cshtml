@@ -27,8 +27,13 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Wyszukaj", "SearchEstate", "Search")</li>
-                    <li>@Html.ActionLink("Wpisz ID", "SearchByID", "Search")</li>
+                    @if (Session["UserName"] != null)
+                    {
+                        <li>@Html.ActionLink("Strona główna", "Index", "Search")</li>
+                        <li>@Html.ActionLink("Wyszukaj", "SearchEstate", "Search")</li>
+                        <li>@Html.ActionLink("Wpisz ID", "SearchByID", "Search")</li>
+                    }
+                    
                 </ul>
             </div>
         </div>

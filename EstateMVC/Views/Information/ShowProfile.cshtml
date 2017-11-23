@@ -12,47 +12,47 @@
     </div>
     <div style='float:left;margin-left:20px'>
         <div style='float:left;'>
-            Numer identyfikacyjny: @Model.listing.HLCN
+            <b>Numer identyfikacyjny</b>: @Model.listing.HLCN
         </div>
         <br /><br />
         <div style='clear:both;'>
-            Cena: @Convert.ToInt32(Model.listing.HousePrice) zł
+            <b>Cena</b>: @Convert.ToInt32(Model.listing.HousePrice) zł
         </div>
         <br />
 
         <div>
-            Dzielnica: @Model.listing.HomeLocation
+            <b>Dzielnica</b>: @Model.listing.HomeLocation
         </div>
         <br />
 
         <div>
-            Adres: @Model.listing.Address
+            <b>Adres</b>: @Model.listing.Address
         </div>
         <br />
 
         <div>
-            Typ obiektu: @Model.listing.TypeOfProperty
+            <b>Typ obiektu</b>: @Model.listing.TypeOfProperty
         </div>
     </div>
 
     <div style="float:left;margin-left:30px">
         <br /><br />
         <div style='clear:both;'>
-            Ilość sypialni: @Model.listing.BedroomAmount
+            <b>Ilość sypialni</b>: @Model.listing.BedroomAmount
         </div>
         <br />
 
         <div>
-            Ilość łazienek: @Model.listing.BathroomAmount
+            <b>Ilość łazienek</b>: @Model.listing.BathroomAmount
         </div>
         <br />
 
         <div>
-            Ilość pokoi: @Model.listing.RoomAmount
+            <b>Ilość pokoi</b>: @Model.listing.RoomAmount
         </div>
         <br />
         <div>
-            Miejsc w garażu: @Model.listing.GarageSlots
+            <b>Miejsc w garażu</b>: @Model.listing.GarageSlots
         </div>
 
     </div>
@@ -60,21 +60,21 @@
     <div style="float:left;margin-left:50px">
         <br /> <br />
         <div style='clear:both;'>
-            Rok budowy: @Model.listing.YearBuilt
+            <b>Rok budowy</b>: @Model.listing.YearBuilt
         </div>
         <div>
             <br />
-            Powierzchnia domu: @Model.listing.HomeSurfaceArea
-        </div>
-
-        <div>
-            <br />
-            Powierzchnia działki: @Model.listing.ParcelSurfaceArea
+            <b>Powierzchnia domu</b>: @Model.listing.HomeSurfaceArea
         </div>
 
         <div>
             <br />
-            Wymiary działki: @Model.listing.ParcelSize
+            <b>Powierzchnia działki</b>: @Model.listing.ParcelSurfaceArea
+        </div>
+
+        <div>
+            <br />
+            <b>Wymiary działki</b>: @Model.listing.ParcelSize
         </div>
     </div>
 
@@ -86,18 +86,18 @@
     <br />
 
     <div style="float:left">
-        Wystawione przez: @Model.listing.ContactName
+        <b>Wystawione przez</b>: @Model.listing.ContactName
     </div>
 
     <div style="float:left;margin-left:50px">
-        Numer telefonu: @Model.listing.PhoneContact
+        <b>Numer telefonu</b>: @Model.listing.PhoneContact
     </div>
 
     <div style="float:left;margin-left:50px">
-        E-mail: @Model.listing.EmailContact
+        <b>E-mail</b>: @Model.listing.EmailContact
     </div>
     <br /><br />
-    Opis nieruchomości
+    <b>Opis nieruchomości</b>
     <br /><br />
     <div style="clear:both;margin-left:50px">
         @Model.listing.Notes
